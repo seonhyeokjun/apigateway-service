@@ -14,14 +14,14 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: first-service
-          uri: lb://MY-FIRST-SERVICE
+        - id: user-service
+          uri: lb://USER-SERVICE
           filters:
-            - CustomFilter
+#            - CustomFilter
 #              - AddRequestHeader=fist-request, first-request-header
 #              - AddResponseHeader=first-response, first-response-header
           predicates:
-            - Path=/first-service/**
+            - Path=/user-service/**
         - id: second-service
           uri: lb://MY-SECOND-SERVICE
           filters:
