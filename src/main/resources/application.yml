@@ -22,19 +22,19 @@ spring:
 #              - AddResponseHeader=first-response, first-response-header
           predicates:
             - Path=/user-service/**
-        - id: second-service
-          uri: lb://MY-SECOND-SERVICE
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
           filters:
-            - name: CustomFilter
-            - name: LoggingFilter
-              args:
-                baseMessage: Hi, there.
-                preLogger: true
-                postLogger: true
+#            - name: CustomFilter
+#            - name: LoggingFilter
+#              args:
+#                baseMessage: Hi, there.
+#                preLogger: true
+#                postLogger: true
 #              - AddRequestHeader=second-request, second-request-header
 #              - AddResponseHeader=second-response, second-response-header
           predicates:
-            - Path=/second-service/**
+            - Path=/catalog-service/**
       default-filters:
         - name: GlobalFilter
           args:
