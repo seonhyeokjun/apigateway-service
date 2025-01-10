@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-@Component
 @Slf4j
+@Component
 public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<AuthorizationHeaderFilter.Config> {
     private Environment env;
 
@@ -60,6 +60,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
                     .getBody()
                     .getSubject();
         } catch (Exception e) {
+            log.error("JWT token is not valid", e.getMessage(), e);
             returnValue = false;
         }
 
